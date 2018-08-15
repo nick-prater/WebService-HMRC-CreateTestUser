@@ -1,6 +1,7 @@
 package WebService::HMRC::CreateTestUser;
 
 use 5.006;
+use Carp;
 use Moose;
 use namespace::autoclean;
 
