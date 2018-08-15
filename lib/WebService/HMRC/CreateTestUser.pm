@@ -143,21 +143,11 @@ which vary according to the services specified:
 sub individual {
 
     my ($self, $args) = @_;
-    my $request_data = {};
 
-    # services is an optional arrayref parameter
-    if(defined $args && defined $args->{services}) {
-        ref $args->{services} eq 'ARRAY'
-            or croak 'services parameter is not an arrayref';
-
-        $request_data->{serviceNames} = $args->{services};
-    }
-
-    return $self->post_endpoint_json({
-        endpoint => '/create-test-user/individuals',
-        data => $request_data,
-        auth_type => 'application',
-    });
+    return $self->_create_user(
+        '/create-test-user/individuals',
+        $args
+    );
 }
 
 
@@ -264,21 +254,11 @@ which vary according to the services specified:
 sub organisation {
 
     my ($self, $args) = @_;
-    my $request_data = {};
 
-    # services is an optional arrayref parameter
-    if(defined $args && defined $args->{services}) {
-        ref $args->{services} eq 'ARRAY'
-            or croak 'services parameter is not an arrayref';
-
-        $request_data->{serviceNames} = $args->{services};
-    }
-
-    return $self->post_endpoint_json({
-        endpoint => '/create-test-user/organisations',
-        data => $request_data,
-        auth_type => 'application',
-    });
+    return $self->_create_user(
+        '/create-test-user/organisations',
+        $args
+    );
 }
 
 
@@ -323,6 +303,30 @@ which vary according to the services specified:
 sub agent {
 
     my ($self, $args) = @_;
+
+    return $self->_create_user(
+        '/create-test-user/agents',
+        $args
+    );
+}
+
+
+# PRIVATE METHODS
+
+# _create_user( $endpoint, \%args )
+# Make an api call to the specified endpoint
+# 
+# Parameters:
+#   $endpoint - the endpoint to call. Required parameter
+#   \%args    - optional hashref containing a `services` element
+#               being a list of services for which the user should
+#               be registered.
+#
+# Returns a WebService::HMRC::Response object
+
+sub _create_user {
+
+    my ($self, $endpoint, $args) = @_;
     my $request_data = {};
 
     # services is an optional arrayref parameter
@@ -334,11 +338,13 @@ sub agent {
     }
 
     return $self->post_endpoint_json({
-        endpoint => '/create-test-user/agents',
+        endpoint => $endpoint,
         data => $request_data,
         auth_type => 'application',
     });
 }
+
+
 
 =head1 INSTALLATION
 
