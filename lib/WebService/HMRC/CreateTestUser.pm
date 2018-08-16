@@ -60,7 +60,11 @@ L<https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/api-p
 
 =over
 
-=item L<WebService::HMRC>
+=item * L<Moose>
+
+=item * L<namespace::autoclean>
+
+=item * L<WebService::HMRC>
 
 =back
 
