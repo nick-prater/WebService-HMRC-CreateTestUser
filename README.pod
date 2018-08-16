@@ -50,7 +50,11 @@ L<https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/api-p
 
 =over
 
-=item L<WebService::HMRC>
+=item * L<Moose>
+
+=item * L<namespace::autoclean>
+
+=item * L<WebService::HMRC>
 
 =back
 
@@ -282,10 +286,16 @@ To install this module, run the following commands:
 
 =head1 AUTHORISATION
 
-Except for a small number of open endpoints, access to the HMRC APIs requires
-appliction or user credentials. These must be obtained from HMRC. Application
-credentials (and documentation) may be obtained from their
-L<Developer Hub|https://developer.service.hmrc.gov.uk/api-documentation>
+Access to the HMRC C<Create Test User> service requires that an application
+be registered with HMRC and 'subscribed' for this api.
+
+The C<Create Test User> endpoints are application-restricted and therefore
+require a C<server token> for authorisation. This is issued when the
+application is registered and may be retrieved from the HMRC Developer Hub.
+
+More information, application credentials and documentation may be obtained
+from the
+L<HMRC Developer Hub|https://developer.service.hmrc.gov.uk/api-documentation>.
 
 =head1 TESTING
 
