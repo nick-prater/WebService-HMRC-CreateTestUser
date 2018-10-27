@@ -80,7 +80,7 @@ Inherits from L<WebService::HMRC::Request>.
 
 Inherits from L<WebService::HMRC::Request>.
 
-=head2 individual({ [services => \@service_list] })
+=head2 individual({services => \@service_list})
 
 Create a test user which is an individual on the HMRC sandbox
 environment. Returns a WebService::HMRC::Response object.
@@ -155,7 +155,7 @@ sub individual {
 }
 
 
-=head2 organisation({ [services => \@service_list] })
+=head2 organisation({services => \@service_list})
 
 Create a test company which is an organisation on the HMRC sandbox
 environment. Returns a WebService::HMRC::Response object.
@@ -266,7 +266,7 @@ sub organisation {
 }
 
 
-=head2 agent({ [services => \@service_list] })
+=head2 agent({services => \@service_list})
 
 Create a test user which is an agent on the HMRC sandbox
 environment. Returns a WebService::HMRC::Response object.
@@ -420,10 +420,6 @@ You can also look for information at:
 =item * RT: CPAN's request tracker (report bugs here)
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-HMRC-CreateTestUser>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/WebService-HMRC-CreateTestUser>
 
 =item * CPAN Ratings
 
